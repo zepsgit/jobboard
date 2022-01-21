@@ -17,7 +17,7 @@ const App=()=>{
             <Container maxWidth="lg">
                 <AppBar className={classes.appBar} position="static" color="inherit">
                     <Typography className={classes.heading} variant="h3" align="center">NL IT Job Board</Typography>
-                    <img className={classes.image} src={logo} alt="logo" height="300" width={800}/>
+                    {/*<img className={classes.image} src={logo} alt="logo" height="300" width={800}/>*/}
                 </AppBar>
                 <Grow in>
                     <Container>

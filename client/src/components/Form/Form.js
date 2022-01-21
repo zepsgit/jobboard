@@ -1,61 +1,61 @@
 import useStyles from "./style"
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64"
 import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/posts";
-const Form=()=>{
-    const dispatch=useDispatch();
-    const [postData, setPostData]=useState({
-        creator:"", title:"", message:"", tags:"", selectedFile:"",
+const Form = () => {
+    const dispatch = useDispatch();
+    const [postData, setPostData] = useState({
+        company: "", title: "", description: "", tags: "", selectedFile: ""
     })
-    const classes=useStyles();
-    const handleSubmit=(e)=>{
+    const classes = useStyles();
+    const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createPost(postData))
     }
-    const clear=()=>{
+    const clear = () => {
 
     }
-    return(
+    return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
                 <Typography variant="h6">Post a Job</Typography>
-                <TextField 
-                    name="company" 
-                    variant="outlined" 
-                    label="Company" 
+                <TextField
+                    name="company"
+                    variant="outlined"
+                    label="Company"
                     fullWidth
-                    value={postData.creator}
-                    onChange={(e)=>setPostData({...postData, company: e.target.value})}
+                    value={postData.company}
+                    onChange={(e) => setPostData({...postData,  company: e.target.value })}
                 />
-                <TextField 
-                    name="title" 
-                    variant="outlined" 
-                    label="Title" 
+                <TextField
+                    name="title"
+                    variant="outlined"
+                    label="Title"
                     fullWidth
                     value={postData.title}
-                    onChange={(e)=>setPostData({...postData, title: e.target.value})}
+                    onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                 />
-                <TextField 
-                    name="description" 
-                    variant="outlined" 
-                    label="Description" 
+                <TextField
+                    name="description"
+                    variant="outlined"
+                    label="Description"
                     fullWidth
-                    value={postData.message}
-                    onChange={(e)=>setPostData({...postData, description: e.target.value})}
+                    value={postData.description}
+                    onChange={(e) => setPostData({ ...postData, description: e.target.value })}
                 />
-                <TextField 
-                    name="tags" 
-                    variant="outlined" 
-                    label="Tags" 
+                <TextField
+                    name="tags"
+                    variant="outlined"
+                    label="Tags"
                     fullWidth
                     value={postData.tags}
-                    onChange={(e)=>setPostData({...postData, tags: e.target.value})}
+                    onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
                 />
-                <FileBase 
+                <FileBase
                     type="file"
-                    multiple={({base64})=>setPostData({...postData, selectedFile:base64})}
+                    multiple={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
                 />
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
