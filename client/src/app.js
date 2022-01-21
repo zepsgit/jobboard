@@ -6,12 +6,13 @@ import {Container, AppBar, Typography, Grow, Grid} from "@material-ui/core"
 import "./style"
 import logo from "./images/logo1.jfif"
 import useStyles from "./style.js"
+import { getPosts } from "./actions/posts";
 const App=()=>{
     const classes=useStyles();
     const dispatch=useDispatch();
     useEffect(()=>{
-        dispatch()
-    }, [])
+        dispatch(getPosts())
+    }, [dispatch])
     return (
             <Container maxWidth="lg">
                 <AppBar className={classes.appBar} position="static" color="inherit">
