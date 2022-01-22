@@ -15,4 +15,4 @@ const PORT = process.env.PORT || 5000
 const CONNECTION_URL = 'mongodb+srv://eric:eric@cluster0.dsibg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }).
     then(() => app.listen(PORT, () => console.log(`the server is running on port ${PORT}`))).
-    catch((err) => console.log("error happened"));
+    catch((err) => console.log(err.message));
