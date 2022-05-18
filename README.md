@@ -1,2 +1,2 @@
-# jobboard demo
-![](https://github.com/zepsgit/jobboard/blob/master/demo.gif)
+# this site had been deployed to the link below
+https://nljobboard.netlify.app/
